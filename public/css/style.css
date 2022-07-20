@@ -1,0 +1,15 @@
+@font-face {
+    font-family: Mulish;
+    src: url(font/Mulish-Regular.ttf);
+}
+body{
+    background-color: whitesmoke;
+}
+h1, h2, h3, h4, h5, h6, a, p {
+    font-family: Mulish;
+    font-weight: bold;
+    color: #0064B2;
+}
+.navbar-nav a{
+    font-weight: bold;
+}
