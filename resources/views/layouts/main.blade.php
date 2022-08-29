@@ -34,7 +34,8 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-primary  sidebar sidebar-dark ccordion" id="accordionSidebar">
 
-            <a class="sidebar-brand d-flex align-items-center justify-content-center bg-white m-2 p-4 rounded-3" href="/admin">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center bg-white m-2 p-4 rounded-3"
+                href="/admin">
                 <div class="sidebar-brand-icon ms-1">
                     <img src="img/simpel-kontek.png" height="65px" alt="">
                 </div>
@@ -62,7 +63,8 @@
                         <a class="collapse-item" href="/kerjasama">Layanan Informasi <br> Kerjasama</a>
                         <a class="collapse-item" href="/penyediaan">Layanan Penyediaan <br> Induk/Benih/Bibit</a>
                         <a class="collapse-item" href="/laboratorium">Layanan Laboratorium</a>
-                        <a class="collapse-item" href="/bintek-penelitian-kerjasama">Layanan Bintek, Penelitian <br> dan Kerjasama</a>
+                        <a class="collapse-item" href="/bintek-penelitian-kerjasama">Layanan Bintek, Penelitian <br> dan
+                            Kerjasama</a>
                     </div>
                 </div>
             </li>
@@ -176,26 +178,30 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin akan keluar?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/logout">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button class="btn btn-primary" type="submit">keluar</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
-           <!-- Bootstrap core JavaScript-->
+    <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
-        <!-- JavaScript Bundle with Popper -->
+    <!-- JavaScript Bundle with Popper -->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
 
     <script src="vendor/datatables/DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/DataTables-1.12.1/js/dataTables.bootstrap5.min.jss"></script>

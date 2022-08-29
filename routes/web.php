@@ -33,22 +33,16 @@ Route::get('/', function () {
   return view('home');
 });
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', function () {
   return view(
     'admin.dash',
     ["title" => "Dashboard"]
   );
-});
-
-Route::get('/logout', function () {
-  return view(
-    'login',
-    ["title" => "Dashboard"]
-  );
-});
+})->middleware('auth');
 
 //setting
 Route::get('/setting', function () {

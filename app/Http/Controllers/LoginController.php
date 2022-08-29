@@ -30,4 +30,14 @@ class LoginController extends Controller
             'eror' => 'Login gagal! Masukan Email dan Password yang benar',
         ]);
     }
+    public function logout()
+    {
+        Auth::logout();
+
+        request()->session()->invalidate();
+
+        request()->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }
