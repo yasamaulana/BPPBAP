@@ -22,7 +22,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url('vendor/datatables/DataTables-1.12.1//css/dataTables.jqueryui.css') }}">
-    <link rel="icon" href="{{ url('img/simpel-kontek.png') }}">
+    <link rel="icon" href="{{ url('img/simpelnew.png') }}">
 
 </head>
 
@@ -37,7 +37,7 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center bg-white m-2 p-4 rounded-3"
                 href="/admin">
                 <div class="sidebar-brand-icon ms-1">
-                    <img src="img/simpel-kontek.png" height="65px" alt="">
+                    <img src="img/simpelnew.png" height="65px" alt="">
                 </div>
                 <div style="color: blue" class="sidebar-brand-text mx-3">Dashboard <br>Admin <sup></sup></div>
             </a>
