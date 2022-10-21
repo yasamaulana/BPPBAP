@@ -1,12 +1,9 @@
-@font-face {
-    font-family: Mulish;
-    src: url(font/Mulish-Regular.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap');
 body{
     background-color: whitesmoke;
 }
 h1, h2, h3, h4, h5, h6, a, p {
-    font-family: Mulish;
+    font-family: 'Mulish', sans-serif;
     font-weight: bold;
     color: #0064B2;
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Goes;
+use App\Models\Pakan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class GoesController extends Controller
+class PakanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,11 @@ class GoesController extends Controller
      */
     public function index()
     {
-        $datas = Goes::all();
+        $datas = Pakan::all();
+
         return view(
-            'admin.goes',
-            ["title" => "Goes Mbak Tri"],
+            'admin.simpel.pakanalami',
+            ["title" => "Pakan Alami"],
             compact('datas')
         );
     }
@@ -42,13 +43,13 @@ class GoesController extends Controller
     public function store(Request $request)
     {
         $icon = $request->file('icon')->getClientOriginalName();
-        $request->file('icon')->storeAs('goes', $icon);
-        $model = new Goes();
+        $request->file('icon')->storeAs('pakan', $icon);
+        $model = new Pakan();
         $model->icon = $request->file('icon')->getClientOriginalName();
-        $model->kabupaten = $request->kabupaten;
+        $model->judul = $request->judul;
         $model->link = $request->link;
         $model->save();
-        return redirect('/goes-mbak-tri')->with(['success' => 'Data Berhasil Ditambah']);
+        return redirect('/pakan-alami')->with(['success' => 'Data Berhasil Ditambah']);
     }
 
     /**
@@ -70,9 +71,9 @@ class GoesController extends Controller
      */
     public function edit($id)
     {
-        $model = Goes::find($id);
+        $model = Pakan::find($id);
         return view(
-            'admin.editadmin.editgoes',
+            'admin.editadmin.editpakan',
             compact(
                 'model'
             )
@@ -88,19 +89,19 @@ class GoesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Goes::find($id);
+        $model = Pakan::find($id);
         if ($request->icon == '') {
             $model->icon = $request->iconlama;
         } else {
             $icon = $request->file('icon')->getClientOriginalName();
-            $request->file('icon')->storeAs('goes', $icon);
-            Storage::delete('goes/' . $request->iconlama);
+            $request->file('icon')->storeAs('pakan', $icon);
+            Storage::delete('pakan/' . $request->iconlama);
             $model->icon = $request->file('icon')->getClientOriginalName();
         }
-        $model->kabupaten = $request->kabupaten;
+        $model->judul = $request->judul;
         $model->link = $request->link;
         $model->save();
-        return redirect('/goes-mbak-ti')->with(['success' => 'Data Berhasil Diedit']);
+        return redirect('/pakan-alami')->with(['success' => 'Data Berhasil Diedit']);
     }
 
     /**
@@ -111,9 +112,9 @@ class GoesController extends Controller
      */
     public function destroy($id)
     {
-        $model = Goes::find($id);
-        Storage::delete('goes/' . $model->icon);
+        $model = Pakan::find($id);
+        Storage::delete('pakan/' . $model->icon);
         $model->delete();
-        return redirect('/goes-mbak-tri')->with(['success' => 'Data Berhasil Dihapus']);
+        return redirect('/pakan-alami')->with(['success' => 'Data Berhasil Dihapus']);
     }
 }

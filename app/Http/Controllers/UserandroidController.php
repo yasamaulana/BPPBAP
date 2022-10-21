@@ -115,6 +115,7 @@ class UserandroidController extends Controller
         $model->delete();
         return redirect('user-android')->with(['success' => 'Data Berhasil dihapus']);
     }
+
     public function export()
     {
         return Excel::download(new UserandroidExport, 'Pengguna.xlsx');

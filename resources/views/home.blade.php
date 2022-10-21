@@ -31,7 +31,7 @@
             <img src="img/simpelnew.png" height="230" width="200" alt="">
             <div class="text-white">
                 <h3 class="">SYSADMIN</h3>
-                <h3>SIMPel KonTek 24 Jam</h3>
+                <h3>Simpel Kontek 24 Jam</h3>
                 <h3 style="margin-top: 100px">BALAI BESAR PERIKANAN BUDIDAYA AIR PAYAU</h3>
                 <h3>BBPBAP JEPARA</h3>
                 <hr style="border: 1px solid blue;">

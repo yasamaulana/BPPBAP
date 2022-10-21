@@ -54,39 +54,42 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fa-solid fa-lightbulb"></i>
-                    <span>SIMpel</span>
+                    <span>Informasi Pelayanan</span>
                 </a>
                 <div id="collapsePages" class="collapse m-2" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/sertifikat">Layanan Informasi <br> Sertifikasi Kompetensi</a>
+                        <a class="collapse-item" href="/sertifikat">Layanan Sertifikasi <br> Uji Kompetensi</a>
                         <a class="collapse-item" href="/kerjasama">Layanan Informasi <br> Kerjasama</a>
-                        <a class="collapse-item" href="/penyediaan">Layanan Penyediaan <br> Induk/Benih/Bibit</a>
+                        <a class="collapse-item" href="/penyediaan">Layanan Penyediaan <br> Induk Unggul/Benih <br>
+                            Bermutu/Pakan Mandiri</a>
                         <a class="collapse-item" href="/laboratorium">Layanan Laboratorium</a>
+                        <a class="collapse-item" href="/pakan-alami">Layanan Penyediaan Pakan <br> Alami</a>
+                        <a class="collapse-item" href="/bantuan-pemerintah">Layanan Bantuan <br> Pemerintah</a>
                         <a class="collapse-item" href="/bintek-penelitian-kerjasama">Layanan Bintek, Penelitian <br> dan
                             Kerjasama</a>
                     </div>
                 </div>
+            </li>
+            <li class="nav-item {{ $title === 'Kontak 24 Jam' ? 'active' : '' }}">
+                <a class="nav-link" href="/kontak-24jam">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Konsultasi Teknis 24 Jam</span></a>
             </li>
             <li class="nav-item {{ $title === 'Ruang Belajar Pasif' ? 'active' : '' }}">
                 <a class="nav-link" href="/ruang-belajar-pasif">
                     <i class="fa-solid fa-lightbulb"></i>
                     <span>Ruang Belajar Pasif</span></a>
             </li>
-            <li class="nav-item {{ $title === 'Database Informasi' ? 'active' : '' }}">
-                <a class="nav-link" href="/database-informasi">
-                    <i class="fa-solid fa-server"></i>
-                    <span>Database Informasi</span></a>
-            </li>
-            <li class="nav-item {{ $title === 'Kontak 24 Jam' ? 'active' : '' }}">
-                <a class="nav-link" href="/kontak-24jam">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>Kontak 24 Jam</span></a>
-            </li>
             <li class="nav-item {{ $title === 'Goes Mbak Tri' ? 'active' : '' }}">
                 <a class="nav-link" href="/goes-mbak-tri">
                     <i class="fa-solid fa-person-walking"></i>
                     <span>Goes Mbak Tri</span></a>
+            </li>
+            <li class="nav-item {{ $title === 'Database Informasi' ? 'active' : '' }}">
+                <a class="nav-link" href="/database-informasi">
+                    <i class="fa-solid fa-server"></i>
+                    <span>Database Informasi</span></a>
             </li>
             <li class="nav-item {{ $title === 'Survei Pengguna' ? 'active' : '' }}">
                 <a class="nav-link" href="/survei-pengguna">
@@ -116,12 +119,12 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- item -->
+            <!-- item
             <li class="nav-item {{ $title === 'Setting' ? 'active' : '' }}">
                 <a class="nav-link" href="/setting">
                     <i class="fa-solid fa-gears"></i>
                     <span>Setting</span></a>
-            </li>
+            </li>-->
             <li class="nav-item {{ $title === 'User Admin' ? 'active' : '' }}">
                 <a class="nav-link" href="/user-admin">
                     <i class="fa-solid fa-users"></i>

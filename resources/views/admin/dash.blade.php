@@ -21,7 +21,7 @@
                                     <div class="d-flex align-items-center justify-content-center">
                                         <i class="m-3 fa-solid fa-lightbulb fa-2x text-gray-300"></i>
                                     </div>
-                                    <div class="text-center h5 mb-0 font-weight-bold text-white">SIMpel</div>
+                                    <div class="text-center h5 mb-0 font-weight-bold text-white">Informasi Pelayanan</div>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,8 @@
                                     <div class="d-flex align-items-center justify-content-center">
                                         <i class="m-3 fas fa-phone fa-2x text-gray-300"></i>
                                     </div>
-                                    <div class="text-center h5 mb-0 font-weight-bold text-white">Kontak 24 Jam</div>
+                                    <div class="text-center h5 mb-0 font-weight-bold text-white">Konsultasi Teknis 24 Jam
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -170,27 +171,25 @@
             </div>
         </div>
 
-
-
         <!-- Divider -->
         <hr class="sidebar-divider">
         <div class="row row-cols-1 row-cols-md-5 g-4">
-            <div class="col">
-                <a href="/setting" style="text-decoration: none">
-                    <div class="card bg-primary shadow h-100 py-2 rounded-4">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        <i class="m-3 fas fa-solid fa-gears fa-2x text-gray-300"></i>
+            <!--<div class="col">
+                    <a href="/setting" style="text-decoration: none">
+                        <div class="card bg-primary shadow h-100 py-2 rounded-4">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <i class="m-3 fas fa-solid fa-gears fa-2x text-gray-300"></i>
+                                        </div>
+                                        <div class="text-center h5 mb-0 font-weight-bold text-white">Setting</div>
                                     </div>
-                                    <div class="text-center h5 mb-0 font-weight-bold text-white">Setting</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div> -->
             <div class="col">
                 <a href="/user-android" style="text-decoration: none">
                     <div class="card bg-primary shadow h-100 py-2 rounded-4">

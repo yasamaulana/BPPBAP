@@ -7,7 +7,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="d-sm-flex align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Layanan Laboratorium</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Layanan Penyediaan Pakan Alami</h6>
                     <div class="ms-auto">
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-gray shadow-sm">Export
                             <i class="fa-solid fa-file-export fa-sm text-secondari-50"></i>
@@ -31,7 +31,7 @@
                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="{{ url('/laboratorium') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('/pakan-alami') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-header">
                                 <h5 class="modal-title" id="staticBackdropLabel">Tambah Data</h5>
@@ -63,6 +63,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table" id="table" width="100%" cellspacing="0">
@@ -86,14 +87,14 @@
                             @foreach ($datas as $key => $value)
                                 <tr>
                                     <td>
-                                        <img src="{{ asset('storage/laboratorium/' . $value->icon) }}" alt=""
+                                        <img src="{{ asset('storage/pakan/' . $value->icon) }}" alt=""
                                             width="40">
                                     </td>
                                     <td>{{ $value->judul }}</td>
                                     <td>{{ $value->link }}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="{{ url('/laboratorium/' . $value->id . '/edit') }}"><button
+                                            <a href="{{ url('/pakan-alami/' . $value->id . '/edit') }}"><button
                                                     class="btn btn-sm rounded-4 ps-3 pe-3 btn-primary">Edit</button></a>
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn rounded-4 btn-danger btn-sm"
@@ -118,7 +119,7 @@
                                                 </div>
                                                 <h1 class="text-center fw-bold">DELETE</h1>
                                                 <h4 class="text-center mb-3">Yakin data akan dihapus?</h4>
-                                                <form action="{{ url('/laboratorium/' . $value->id) }}" method="POST">
+                                                <form action="{{ url('/pakan-alami/' . $value->id) }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <div class="d-grid gap-2 col-5 mx-auto d-flex">
