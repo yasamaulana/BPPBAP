@@ -9,7 +9,7 @@
                 <div class="d-sm-flex align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">User Admin</h6>
                     <div class="ms-auto">
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-gray shadow-sm">Export
+                        <a href="/user-android/export" class="d-none d-sm-inline-block btn btn-sm btn-gray shadow-sm">Export
                             <i class="fa-solid fa-file-export fa-sm text-secondari-50"></i>
                         </a>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"

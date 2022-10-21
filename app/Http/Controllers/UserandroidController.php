@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\UserandroidExport;
 use App\Models\User;
 use App\Models\Userandroid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserandroidController extends Controller
 {
@@ -112,5 +114,9 @@ class UserandroidController extends Controller
         $model = Userandroid::find($id);
         $model->delete();
         return redirect('user-android')->with(['success' => 'Data Berhasil dihapus']);
+    }
+    public function export()
+    {
+        return Excel::download(new UserandroidExport, 'Pengguna.xlsx');
     }
 }

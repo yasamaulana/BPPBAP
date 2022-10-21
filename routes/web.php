@@ -54,6 +54,7 @@ Route::get('/setting', function () {
 
 //userAndoid
 Route::resource('/user-android', UserandroidController::class);
+Route::get('/user-android/export', [UserandroidController::class, 'export']);
 //useradmin
 Route::resource('/user-admin', AdminControlller::class);
 //sertifikat
