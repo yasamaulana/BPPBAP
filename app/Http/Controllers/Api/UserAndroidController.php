@@ -51,6 +51,7 @@ class UserAndroidController extends Controller
         $model->username = $request->username;
         $model->password = $request->password;
         $model->save();
+        return response()->json(['success' => true, 'data' => 'sucess']);
     }
 
     /**
@@ -93,9 +94,9 @@ class UserAndroidController extends Controller
     {
 
         $model = Userandroid::find($id);
-        $model->update([
-            'name' => $request->dfgerge
-        ]);
+        $model->update(
+            $request->all()
+        );
 
         return response()->json(['success' => true, 'data' => 'sucess']);
     }
