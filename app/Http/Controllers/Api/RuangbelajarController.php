@@ -12,6 +12,9 @@ class RuangbelajarController extends Controller
     {
         $datas = Belajarpasif::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_ruangbelajar' => $datas
+        ], 200);
     }
 }

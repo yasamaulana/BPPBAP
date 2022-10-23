@@ -12,6 +12,9 @@ class SlideController extends Controller
     {
         $datas = Slide::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_slide' => $datas
+        ], 200);
     }
 }

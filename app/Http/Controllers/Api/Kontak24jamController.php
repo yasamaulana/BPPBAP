@@ -12,6 +12,9 @@ class Kontak24jamController extends Controller
     {
         $datas = Kontak::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_kontak' => $datas
+        ], 200);
     }
 }

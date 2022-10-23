@@ -12,6 +12,9 @@ class PengaduanController extends Controller
     {
         $datas = Pengaduan::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_pengaduan' => $datas
+        ], 200);
     }
 }

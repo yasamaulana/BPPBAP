@@ -12,6 +12,9 @@ class SurveiController extends Controller
     {
         $datas = Survei::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_survei' => $datas
+        ], 200);
     }
 }

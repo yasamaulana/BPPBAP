@@ -12,6 +12,9 @@ class PenyediaanController extends Controller
     {
         $datas = Penyediaan::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_penyediaan' => $datas
+        ], 200);
     }
 }

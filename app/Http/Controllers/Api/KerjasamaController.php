@@ -12,6 +12,9 @@ class KerjasamaController extends Controller
     {
         $datas = Kerjasama::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_kerjasama' => $datas
+        ], 200);
     }
 }

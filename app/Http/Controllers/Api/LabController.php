@@ -12,6 +12,9 @@ class LabController extends Controller
     {
         $datas = Lab::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_lab' => $datas
+        ], 200);
     }
 }

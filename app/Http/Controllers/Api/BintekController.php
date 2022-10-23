@@ -12,6 +12,9 @@ class BintekController extends Controller
     {
         $datas = Bintek::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_bintek' => $datas
+        ], 200);
     }
 }

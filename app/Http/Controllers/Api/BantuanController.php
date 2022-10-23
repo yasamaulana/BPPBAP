@@ -12,6 +12,9 @@ class BantuanController extends Controller
     {
         $datas = Bantuan::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_bantuan' => $datas
+        ], 200);
     }
 }

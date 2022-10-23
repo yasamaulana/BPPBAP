@@ -12,6 +12,9 @@ class InfoController extends Controller
     {
         $datas = Info::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_info' => $datas
+        ], 200);
     }
 }

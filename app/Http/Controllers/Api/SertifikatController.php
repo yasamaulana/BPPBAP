@@ -16,6 +16,9 @@ class SertifikatController extends Controller
     public function index()
     {
         $datas = Sertifikat::all();
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_sertifikat' => $datas
+        ], 200);
     }
 }

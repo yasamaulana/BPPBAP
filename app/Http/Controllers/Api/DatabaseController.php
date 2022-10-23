@@ -12,6 +12,9 @@ class DatabaseController extends Controller
     {
         $datas = Databaseinformasi::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_database' => $datas
+        ], 200);
     }
 }

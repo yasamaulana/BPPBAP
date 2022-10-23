@@ -12,6 +12,9 @@ class PakanController extends Controller
     {
         $datas = Pakan::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_pakan' => $datas
+        ], 200);
     }
 }

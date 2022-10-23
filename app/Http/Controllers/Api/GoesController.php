@@ -12,6 +12,9 @@ class GoesController extends Controller
     {
         $datas = Goes::all();
 
-        return response()->json($datas);
+        return response()->json([
+            'success' => true,
+            'data_goes' => $datas
+        ], 200);
     }
 }
