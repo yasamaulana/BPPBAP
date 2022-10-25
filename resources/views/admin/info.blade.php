@@ -97,8 +97,8 @@
                                         <img src="{{ asset('storage/info/' . $value->gambar) }}" alt=""
                                             width="70">
                                     </td>
-                                    <td>{{ $value->link }}</td>
                                     <td>{{ $value->text }}</td>
+                                    <td>{{ $value->link }}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a href="{{ url('/info-terkini/' . $value->id . '/edit') }}"><button

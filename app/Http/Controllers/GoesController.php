@@ -100,7 +100,7 @@ class GoesController extends Controller
         $model->kabupaten = $request->kabupaten;
         $model->link = $request->link;
         $model->save();
-        return redirect('/goes-mbak-ti')->with(['success' => 'Data Berhasil Diedit']);
+        return redirect('/goes-mbak-tri')->with(['success' => 'Data Berhasil Diedit']);
     }
 
     /**

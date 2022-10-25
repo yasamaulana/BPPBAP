@@ -28,7 +28,7 @@
             <form action="{{ url('/database-informasi/' . $model->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-header grid bg-primary">
-                    <h4 class="text-white text-center mt-2 g-col-4">Edit Data Bintek, Penelitian dan Kerjasama</h4>
+                    <h4 class="text-white text-center mt-2 g-col-4">Edit Database Informasi</h4>
                 </div>
                 <div class="card-body">
                     <input type="hidden" name="_method" value="PATCH">

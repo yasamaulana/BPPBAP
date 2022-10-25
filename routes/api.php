@@ -37,4 +37,4 @@ Route::get('/database-informasi', [App\Http\Controllers\Api\DatabaseController::
 Route::get('/survei-pengguna', [App\Http\Controllers\Api\SurveiController::class, 'index']);
 Route::get('/pusat-pengaduan', [App\Http\Controllers\Api\PengaduanController::class, 'index']);
 Route::get('/slide-show', [App\Http\Controllers\Api\SlideController::class, 'index']);
-Route::get('/info-terkini', [App\Http\Controllers\Api\SlideController::class, 'index']);
+Route::get('/info-terkini', [App\Http\Controllers\Api\InfoController::class, 'index']);

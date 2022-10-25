@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Databaseinformasi;
-use Illuminate\Http\Request;
 
 class DatabaseController extends Controller
 {
