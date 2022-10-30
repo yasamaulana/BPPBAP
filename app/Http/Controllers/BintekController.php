@@ -112,7 +112,7 @@ class BintekController extends Controller
     public function destroy($id)
     {
         $model = Bintek::find($id);
-        Storage::delete('bintek/' . $model->grafik);
+        Storage::delete('bintek/' . $model->icon);
         $model->delete();
         return redirect('/bintek-penelitian-kerjasama')->with(['success' => 'Data Berhasil Dihapus']);
     }

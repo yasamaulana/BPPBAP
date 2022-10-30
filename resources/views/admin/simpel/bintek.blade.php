@@ -7,7 +7,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="d-sm-flex align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Layanan Bintek, Penelitian dan Kerjasama</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Layanan Informasi Bintek, Penelitian dan Kerjasama</h6>
                     <div class="ms-auto">
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-gray shadow-sm">Export
                             <i class="fa-solid fa-file-export fa-sm text-secondari-50"></i>
@@ -40,21 +40,19 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="icon" class="form-label">Icon/Logo</label>
-                                    <input type="file" class="form-control" id="icon"
-                                        accept="image/gif,image/jpeg,image/jpg,image/png," name="icon" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="judul" class="form-label">Judul</label>
-                                    <input type="text" class="form-control" id="judul" name="judul"
-                                        placeholder="Judul" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="link" class="form-label">Link</label>
-                                    <input type="text" class="form-control" id="link" name="link"
-                                        placeholder="Link" required>
-                                </div>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="icon" class="form-label">Icon/Logo</label>
+                                        <input type="file" class="form-control" id="icon" name="icon" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="judul" class="form-label">Judul</label>
+                                        <input type="text" class="form-control" id="judul" name="judul" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="link" class="form-label">Link</label>
+                                        <input type="text" class="form-control" id="link" name="link" required>
+                                    </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
@@ -114,12 +112,11 @@
                                                 aria-label="Close"></button>
                                             <div class="modal-body">
                                                 <div class="d-flex justify-content-center mb-3">
-                                                    <i class="fa-solid fa-trash text-danger"
-                                                        style="font-size: 120px;"></i>
+                                                    <i class="fa-solid fa-trash text-danger" style="font-size: 120px;"></i>
                                                 </div>
                                                 <h1 class="text-center fw-bold">DELETE</h1>
                                                 <h4 class="text-center mb-3">Yakin data akan dihapus?</h4>
-                                                <form action="{{ url('/bintek-penelititan-kerjasama/' . $value->id) }}"
+                                                <form action="{{ url('/bintek-penelitian-kerjasama/' . $value->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
