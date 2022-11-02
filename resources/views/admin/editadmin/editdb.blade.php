@@ -43,6 +43,11 @@
                         <input type="file" class="form-control" id="nama" name="grafik" placeholder="Grafik"
                             accept="image/gif,image/jpeg,image/jpg,image/png,">
                     </div>
+                    <div class="mb-3">
+                        <label for="jabatan" class="form-label">Link</label>
+                        <input type="text" class="form-control" id="jabatan" name="link" placeholder="Judul"
+                            required value="{{ $model->link }}">
+                    </div>
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-primary" type="submit">Simpan</button>

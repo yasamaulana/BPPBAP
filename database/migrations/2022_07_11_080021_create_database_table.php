@@ -17,6 +17,7 @@ class CreateDatabaseTable extends Migration
             $table->id();
             $table->string('judul');
             $table->string('grafik');
+            $table->string('link');
             $table->timestamps();
         });
     }

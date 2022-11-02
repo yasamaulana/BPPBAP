@@ -47,6 +47,10 @@
                                     <label for="icon" class="form-label">Gambar/Grafik</label>
                                     <input type="file" class="form-control" id="icon" name="grafik" required>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="judul" class="form-label">Link</label>
+                                    <input type="text" class="form-control" id="judul" name="link" required>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
@@ -63,6 +67,7 @@
                             <tr>
                                 <th>Judul Survei</th>
                                 <th>Gambar/Grafik</th>
+                                <th>Link</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -70,6 +75,7 @@
                             <tr>
                                 <th>Judul Survei</th>
                                 <th>Gambar/Grafik</th>
+                                <th>Link</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -81,6 +87,7 @@
                                         <img src="{{ asset('storage/database/' . $value->grafik) }}" alt=""
                                             width="40">
                                     </td>
+                                    <td>{{ $value->link }}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a href="{{ url('/database-informasi/' . $value->id . '/edit') }}"><button

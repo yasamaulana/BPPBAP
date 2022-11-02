@@ -46,6 +46,7 @@ class DatabaseController extends Controller
         $model = new Databaseinformasi();
         $model->grafik = $request->file('grafik')->getClientOriginalName();
         $model->judul = $request->judul;
+        $model->link = $request->link;
         $model->save();
         return redirect('/database-informasi')->with(['success' => 'Data Berhasil Ditambah']);
     }
@@ -97,6 +98,7 @@ class DatabaseController extends Controller
             $model->grafik = $request->file('grafik')->getClientOriginalName();
         }
         $model->judul = $request->judul;
+        $model->link = $request->link;
         $model->save();
         return redirect('/database-informasi')->with(['success' => 'Data Berhasil Diedit']);
     }
