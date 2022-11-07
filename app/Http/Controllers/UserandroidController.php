@@ -18,7 +18,7 @@ class UserandroidController extends Controller
      */
     public function index()
     {
-        $datas = Userandroid::all();
+        $datas = User::where('type', 'user')->get();
 
         return view(
             'admin.userandroid',
@@ -45,7 +45,7 @@ class UserandroidController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Userandroid;
+        $model = new User;
         $model->nama = $request->nama;
         $model->alamat = $request->alamat;
         $model->nomor = $request->nomor;
@@ -53,6 +53,7 @@ class UserandroidController extends Controller
         $model->nama = $request->nama;
         $model->pekerjaan = $request->pekerjaan;
         $model->email = $request->email;
+        $model->type = "user";
         $model->username = $request->username;
         $model->password = Hash::make($request->password);
         $model->save();
@@ -78,7 +79,7 @@ class UserandroidController extends Controller
      */
     public function edit($id)
     {
-        $model = Userandroid::find($id);
+        $model = User::find($id);
         return view(
             'admin.editadmin.editandroid',
             ["title" => "User Android"],
@@ -97,7 +98,7 @@ class UserandroidController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Userandroid::find($id);
+        $item = User::find($id);
         $data = $request->except('_token');
         $item->update($data);
         return redirect('/user-android')->with(['success' => 'Data Berhasil Diedit']);
@@ -111,7 +112,7 @@ class UserandroidController extends Controller
      */
     public function destroy($id)
     {
-        $model = Userandroid::find($id);
+        $model = User::find($id);
         $model->delete();
         return redirect('user-android')->with(['success' => 'Data Berhasil dihapus']);
     }

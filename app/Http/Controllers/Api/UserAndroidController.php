@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Userandroid;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
 
 class UserAndroidController extends Controller
 {
@@ -15,7 +19,7 @@ class UserAndroidController extends Controller
      */
     public function index()
     {
-        $datas = Userandroid::all();
+        $datas = User::where('type', 'user')->get();
 
         return response()->json($datas);
     }
@@ -27,7 +31,7 @@ class UserAndroidController extends Controller
      */
     public function create(Request $request)
     {
-        UserAndroid::create($request->all());
+        User::create($request->all());
 
         return response()->json(['success' => true, 'data' => 'sucess']);
     }
@@ -40,18 +44,40 @@ class UserAndroidController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Userandroid;
-        $model->nama = $request->nama;
-        $model->alamat = $request->alamat;
-        $model->nomor = $request->nomor;
-        $model->tgl_lahir = $request->tgl_lahir;
-        $model->nama = $request->nama;
-        $model->pekerjaan = $request->pekerjaan;
-        $model->email = $request->email;
-        $model->username = $request->username;
-        $model->password = $request->password;
-        $model->save();
-        return response()->json(['success' => true, 'data' => 'sucess']);
+        $validator = Validator::make($request->all(), [
+            'nama'     => 'required',
+            'alamat'     => 'required',
+            'nomor'   => 'required',
+            'tgl_lahir'   => 'required',
+            'pekerjaan'   => 'required',
+            'email'   => ['required', 'email', 'unique:users'],
+            'username'   => 'required',
+            'password'   => 'required'
+        ]);
+
+        //check if validation fails
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        $user = User::create([
+            'nama'     => $request->nama,
+            'alamat'     => $request->alamat,
+            'nomor'   => $request->nomor,
+            'tgl_lahir'   => $request->tgl_lahir,
+            'pekerjaan'   => $request->pekerjaan,
+            'type'   => "user",
+            'email'   => $request->email,
+            'username'   => $request->username,
+            'password'   => Hash::make($request->password),
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'data' => 'sucess',
+            'value' => 1,
+            'content' => $user
+        ]);
     }
 
     /**
@@ -62,7 +88,7 @@ class UserAndroidController extends Controller
      */
     public function show($id)
     {
-        return Userandroid::find($id);
+        return User::find($id);
     }
 
     /**
@@ -73,7 +99,7 @@ class UserAndroidController extends Controller
      */
     public function edit($id)
     {
-        $model = Userandroid::find($id);
+        $model = User::find($id);
         return view(
             'admin.editadmin.editandroid',
             ["title" => "User Android"],
@@ -92,13 +118,18 @@ class UserAndroidController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $model = Userandroid::find($id);
+        $model = User::find($id);
         $model->update(
             $request->all()
         );
 
-        return response()->json(['success' => true, 'data' => 'sucess']);
+        return response()->json([
+            'success' => true,
+            'data' => 'sucess',
+            'value' => 1,
+            'email' => $model->email,
+            'content' => $model,
+        ], 200);
     }
 
     /**
@@ -110,5 +141,30 @@ class UserAndroidController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function login(Request $request)
+    {
+        $login = Auth::Attempt($request->all());
+        if ($login) {
+            $user = Auth::User();
+            $user->api_token = Str::random(100);
+            $user->save();
+            // $user->makeVisible('api_token');
+
+            return response()->json([
+                'response_code' => 200,
+                'value' => 1,
+                'message' => 'Login Berhasil',
+                'email' => $user->id,
+                'content' => $user
+            ]);
+        } else {
+            return response()->json([
+                'response_code' => 404,
+                'value' => 0,
+                'message' => 'Username atau Password Tidak Ditemukan!'
+            ]);
+        }
     }
 }

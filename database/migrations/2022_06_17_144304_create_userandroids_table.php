@@ -18,6 +18,7 @@ class CreateUserandroidsTable extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->string('nomor');
+            $table->string('api_token')->nullable();
             $table->string('tgl_lahir');
             $table->string('pekerjaan');
             $table->string('email');
