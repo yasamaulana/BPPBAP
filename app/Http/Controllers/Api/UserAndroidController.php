@@ -48,7 +48,7 @@ class UserAndroidController extends Controller
             'nama'     => 'required',
             'alamat'     => 'required',
             'nomor'   => 'required',
-            'tgl_lahir'   => 'required',
+            'umur'   => 'required',
             'pekerjaan'   => 'required',
             'email'   => ['required', 'email', 'unique:users'],
             'username'   => 'required',
@@ -64,7 +64,7 @@ class UserAndroidController extends Controller
             'nama'     => $request->nama,
             'alamat'     => $request->alamat,
             'nomor'   => $request->nomor,
-            'tgl_lahir'   => $request->tgl_lahir,
+            'umur'   => $request->umur,
             'pekerjaan'   => $request->pekerjaan,
             'type'   => "user",
             'email'   => $request->email,
@@ -149,7 +149,7 @@ class UserAndroidController extends Controller
         if ($login) {
             $user = Auth::User();
             $user->api_token = Str::random(100);
-            $user->save();
+            //$user->save();
             // $user->makeVisible('api_token');
 
             return response()->json([

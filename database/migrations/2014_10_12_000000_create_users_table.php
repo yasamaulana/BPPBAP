@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('alamat')->nullable();
             $table->string('nomor')->nullable();
             $table->string('api_token')->nullable();
-            $table->string('tgl_lahir')->nullable();
+            $table->string('umur')->nullable();
             $table->string('pekerjaan')->nullable();
             $table->string('email');
             $table->string('username')->nullable();

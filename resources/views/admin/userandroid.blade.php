@@ -55,9 +55,9 @@
                                         placeholder="Nomor HP" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="tanggal" class="form-label">Tanggal Lahir</label>
-                                    <input type="date" class="form-control" name="tgl_lahir" id="tanggal"
-                                        placeholder="Tanggal Lahir" required>
+                                    <label for="tanggal" class="form-label">Umur</label>
+                                    <input type="number" class="form-control" name="umur" id="tanggal"
+                                        placeholder="Umur" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="pekerjaan" class="form-label">Jenis Pekerjaan</label>
@@ -96,7 +96,7 @@
                                 <th>Nama Lengkap</th>
                                 <th>Alamat</th>
                                 <th>Nomer HP</th>
-                                <th>Tanggal Lahir</th>
+                                <th>Umur</th>
                                 <th>Jenis Pekerjaan</th>
                                 <th>Email</th>
                                 <th>Username</th>
@@ -109,7 +109,7 @@
                                 <th>Nama Lengkap</th>
                                 <th>Alamat</th>
                                 <th>Nomer HP</th>
-                                <th>Tanggal Lahir</th>
+                                <th>Umur</th>
                                 <th>Jenis Pekerjaan</th>
                                 <th>Email</th>
                                 <th>Username</th>
@@ -123,7 +123,7 @@
                                     <td>{{ $value->nama }}</td>
                                     <td>{{ $value->alamat }}</td>
                                     <td>{{ $value->nomor }}</td>
-                                    <td>{{ $value->tgl_lahir }}</td>
+                                    <td>{{ $value->umur }}</td>
                                     <td>{{ $value->pekerjaan }}</td>
                                     <td>{{ $value->email }}</td>
                                     <td>{{ $value->username }}</td>

@@ -15,7 +15,7 @@ class AdminControlller extends Controller
      */
     public function index()
     {
-        $datas = User::all();
+        $datas = User::where('type', 'admin')->get();
 
         return view(
             'admin.useradmin',

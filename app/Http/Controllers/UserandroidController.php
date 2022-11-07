@@ -49,7 +49,7 @@ class UserandroidController extends Controller
         $model->nama = $request->nama;
         $model->alamat = $request->alamat;
         $model->nomor = $request->nomor;
-        $model->tgl_lahir = $request->tgl_lahir;
+        $model->umur = $request->umur;
         $model->nama = $request->nama;
         $model->pekerjaan = $request->pekerjaan;
         $model->email = $request->email;
