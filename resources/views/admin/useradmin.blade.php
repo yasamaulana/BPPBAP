@@ -55,6 +55,7 @@
                                         placeholder="Email" required>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="email" class="form-label">Tipe User</label>
                                     <select class="form-select" aria-placeholder="Admin" name="type" required>
                                         <option value="Admin">Admin</option>
                                         <option value="Super Admin">Super Admin</option>

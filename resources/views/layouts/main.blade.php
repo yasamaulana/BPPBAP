@@ -125,16 +125,18 @@
                     <i class="fa-solid fa-gears"></i>
                     <span>Setting</span></a>
             </li>-->
-            <li class="nav-item {{ $title === 'User Admin' ? 'active' : '' }}">
-                <a class="nav-link" href="/user-admin">
-                    <i class="fa-solid fa-users"></i>
-                    <span>User Admin</span></a>
-            </li>
-            <li class="nav-item {{ $title === 'User Android' ? 'active' : '' }}">
-                <a class="nav-link" href="/user-android">
-                    <i class="fa-solid fa-users"></i>
-                    <span>User Android</span></a>
-            </li>
+            @if (auth()->user()->type == 'Super Admin')
+                <li class="nav-item {{ $title === 'User Admin' ? 'active' : '' }}">
+                    <a class="nav-link" href="/user-admin">
+                        <i class="fa-solid fa-users"></i>
+                        <span>User Admin</span></a>
+                </li>
+                <li class="nav-item {{ $title === 'User Android' ? 'active' : '' }}">
+                    <a class="nav-link" href="/user-android">
+                        <i class="fa-solid fa-users"></i>
+                        <span>User Android</span></a>
+                </li>
+            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

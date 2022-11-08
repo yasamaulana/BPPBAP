@@ -12,10 +12,10 @@
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-gray shadow-sm">Export
                             <i class="fa-solid fa-file-export fa-sm text-secondari-50"></i>
                         </a>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">Tambah
-                            <i class="fa-solid fa-circle-plus fa-sm text-white-50"></i>
-                        </button>
+                        <!--<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">Tambah
+                                    <i class="fa-solid fa-circle-plus fa-sm text-white-50"></i>
+                                </button> -->
                     </div>
                 </div>
                 @if (session()->has('success'))
@@ -96,10 +96,10 @@
                                             <a href="{{ url('/pusat-pengaduan/' . $value->id . '/edit') }}"><button
                                                     class="btn btn-sm rounded-4 ps-3 pe-3 btn-primary">Edit</button></a>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn rounded-4 btn-danger btn-sm"
-                                                data-bs-toggle="modal" data-bs-target="#delete">
-                                                Delete
-                                            </button>
+                                            <!-- <button type="button" class="btn rounded-4 btn-danger btn-sm"
+                                                    data-bs-toggle="modal" data-bs-target="#delete">
+                                                    Delete
+                                                </button>-->
                                         </div>
                                     </td>
                                 </tr>

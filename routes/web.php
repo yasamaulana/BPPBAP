@@ -55,10 +55,10 @@ Route::get('/setting', function () {
 });
 
 //userAndoid
-Route::resource('/user-android', UserandroidController::class)->middleware('auth');
-Route::get('/user-android/export', [UserandroidController::class, 'export'])->middleware('auth');
+Route::resource('/user-android', UserandroidController::class)->middleware('super');
+Route::get('/user-android/export', [UserandroidController::class, 'export'])->middleware('super');
 //useradmin
-Route::resource('/user-admin', AdminControlller::class)->middleware('auth');
+Route::resource('/user-admin', AdminControlller::class)->middleware('super');
 //sertifikat
 Route::resource('/sertifikat', SertifikatController::class)->middleware('auth');
 //kerjasama

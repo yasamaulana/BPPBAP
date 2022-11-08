@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/user-android', [App\Http\Controllers\Api\UserAndroidController::class, 'index']);
 Route::post('/user-android/register', [App\Http\Controllers\Api\UserAndroidController::class, 'store']);
 Route::get('/user-android/{id}', [App\Http\Controllers\Api\UserAndroidController::class, 'show']);
-Route::put('/user-android/register/{id}', [App\Http\Controllers\Api\UserAndroidController::class, 'update']);
+Route::put('/user-android/register/update/{id}', [App\Http\Controllers\Api\UserAndroidController::class, 'update']);
 Route::post('/user-android/login', [App\Http\Controllers\Api\UserAndroidController::class, 'login']);
 
 Route::get('/sertifikat', [App\Http\Controllers\Api\SertifikatController::class, 'index']);

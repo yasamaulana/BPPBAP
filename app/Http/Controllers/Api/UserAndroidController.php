@@ -60,7 +60,11 @@ class UserAndroidController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
+        $get = User::max('kode');
+        $kode = $get + 1;
+
         $user = User::create([
+            'kode'     => $kode,
             'nama'     => $request->nama,
             'alamat'     => $request->alamat,
             'nomor'   => $request->nomor,
@@ -74,8 +78,9 @@ class UserAndroidController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => 'sucess',
+            'message' => 'Registrasi Berhasil',
             'value' => 1,
+            'id' => $user->id,
             'content' => $user
         ]);
     }
@@ -86,9 +91,14 @@ class UserAndroidController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        return User::find($id);
+        $user = User::find($request->kode);
+
+        return response()->json([
+            'value' => 1,
+            'data' => $user
+        ]);
     }
 
     /**
@@ -127,8 +137,8 @@ class UserAndroidController extends Controller
             'success' => true,
             'data' => 'sucess',
             'value' => 1,
-            'email' => $model->email,
-            'content' => $model,
+            'id' => $model->id,
+            'content' => $model
         ], 200);
     }
 
@@ -154,10 +164,10 @@ class UserAndroidController extends Controller
 
             return response()->json([
                 'response_code' => 200,
+                'id' => $user->id,
+                'kode' => $user->kode,
                 'value' => 1,
-                'message' => 'Login Berhasil',
-                'email' => $user->id,
-                'content' => $user
+                'message' => 'Login Berhasil'
             ]);
         } else {
             return response()->json([

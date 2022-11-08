@@ -45,8 +45,12 @@ class UserandroidController extends Controller
      */
     public function store(Request $request)
     {
+        $get = User::max('kode');
+        $kode = $get + 1;
+
         $model = new User;
         $model->nama = $request->nama;
+        $model->kode = $kode;
         $model->alamat = $request->alamat;
         $model->nomor = $request->nomor;
         $model->umur = $request->umur;

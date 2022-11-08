@@ -19,7 +19,7 @@ class Useradmin extends Seeder
             'nama' => 'admin',
             'jabatan' => 'Super Admin',
             'email' => 'admin@gmail.com',
-            'type' => 'admin',
+            'type' => 'Admin',
             'password' => Hash::make('admin123'),
         ]);
     }
