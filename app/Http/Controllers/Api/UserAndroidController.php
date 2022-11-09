@@ -16,18 +16,18 @@ class UserAndroidController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $datas = User::where('type', 'user')->get();
+        $datas = $request->user();
 
-        // return response()->json($datas);
-        if (Auth()) {
-            $datas = Auth::user();
-            return response()->json($datas);
-        }
-        return response()->json([
-            'status' => 'Autentikasi kosong'
-        ]);
+        return response()->json($datas);
+        // if (Auth()) {
+        //     $datas = Auth::user();
+        //     return response()->json($datas);
+        // }
+        // return response()->json([
+        //     'status' => 'Autentikasi kosong'
+        // ]);
     }
 
     /**

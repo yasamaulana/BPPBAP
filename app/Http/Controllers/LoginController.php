@@ -23,7 +23,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/admin');
+            if (Auth()->user()->type == 'user') {
+                $message = "Masukan Email dan Password dengan benar";
+            } else {
+                return redirect()->intended('/admin');
+            }
         }
 
         return back()->with([

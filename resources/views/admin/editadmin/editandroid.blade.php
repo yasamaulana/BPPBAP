@@ -48,9 +48,9 @@
                             required value="{{ $model->nomor }}">
                     </div>
                     <div class="mb-3">
-                        <label for="tanggal" class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control" name="tgl_lahir" id="tanggal"
-                            placeholder="Tanggal Lahir" required value="{{ $model->tgl_lahir }}">
+                        <label for="tanggal" class="form-label">Umur</label>
+                        <input type="number" class="form-control" name="umur" id="tanggal" placeholder="Umur"
+                            required value="{{ $model->umur }}">
                     </div>
                     <div class="mb-3">
                         <label for="pekerjaan" class="form-label">Jenis Pekerjaan</label>

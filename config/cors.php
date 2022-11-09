@@ -31,4 +31,8 @@ return [
 
     'supports_credentials' => false,
 
+    'paths' => ['api/*', '/login', 'sanctum/csrf-cookie'],
+
+    'supports_credentials' => true,
+
 ];

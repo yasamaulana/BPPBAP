@@ -11,34 +11,34 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        $login = Auth::Attempt($request->all());
-        if ($login) {
-            $user = Auth::User();
-            $user->api_token = Str::random(100);
-            //$user->save();
-            // $user->makeVisible('api_token');
 
-            return response()->json([
-                'response_code' => 200,
-                'id' => $user->id,
-                'kode' => $user->kode,
-                'value' => 1,
-                'message' => 'Login Berhasil'
-            ]);
-            Auth::user();
-        } else {
-            return response()->json([
-                'response_code' => 404,
-                'value' => 0,
-                'message' => 'Username atau Password Tidak Ditemukan!'
-            ]);
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        $status = 401;
+        $response = [
+            'error' => 'Proses masuk gagal!. Silahkan coba kembali.',
+        ];
+
+        if (Auth::attempt($credentials)) {
+            $status = 200;
+            $token = $request->user()->createToken('api_token')->plainTextToken;
+            $response = [
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+            ];
         }
+
+        return response()->json($response, $status);
     }
+
     public function logout(Request $request)
     {
-        $token = $request->user()->api_token();
-        $token->revoke();
-        $response = ['message' => 'You have been successfully logged out!'];
-        return response($response, 200);
+        Auth::user()->tokens()->delete();
+        return response()->json([
+            'message' => 'logout success'
+        ]);
     }
 }

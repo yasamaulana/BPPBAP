@@ -21,13 +21,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/user-android/profile', [App\Http\Controllers\Api\UserAndroidController::class, 'index']);
 Route::post('/user-android/register', [App\Http\Controllers\Api\Auth\RegisterController::class, 'store']);
 Route::get('/user-android/{id}', [App\Http\Controllers\Api\UserAndroidController::class, 'show']);
-Route::put('/user-android/register/update/{id}', [App\Http\Controllers\Api\UserAndroidController::class, 'update']);
+Route::post('/user-android/register/update/{id}', [App\Http\Controllers\Api\UserAndroidController::class, 'update']);
 Route::post('/user-android/login', [App\Http\Controllers\Api\Auth\LoginController::class, 'login']);
 
-Route::middleware('auth:api')->get('/logout', function (Request $request) {
-    Route::post('/user-android/logout', [App\Http\Controllers\Api\Auth\LoginController::class, 'logout'])->name('logout.api');
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [\App\Http\Controllers\Api\Auth\LoginController::class, 'logout']);
 });
 
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 Route::get('/sertifikat', [App\Http\Controllers\Api\SertifikatController::class, 'index']);
 Route::get('/kerjasama', [App\Http\Controllers\Api\KerjasamaController::class, 'index']);
