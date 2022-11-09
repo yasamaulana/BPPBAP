@@ -19,6 +19,13 @@ class Useradmin extends Seeder
             'nama' => 'admin',
             'jabatan' => 'Super Admin',
             'email' => 'admin@gmail.com',
+            'type' => 'Super Admin',
+            'password' => Hash::make('admin123'),
+        ]);
+        DB::table('users')->insert([
+            'nama' => 'Yasa',
+            'jabatan' => 'Admin',
+            'email' => 'admin@gmail.com',
             'type' => 'Admin',
             'password' => Hash::make('admin123'),
         ]);

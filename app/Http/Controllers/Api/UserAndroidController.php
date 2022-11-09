@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 
 class UserAndroidController extends Controller
@@ -19,9 +18,16 @@ class UserAndroidController extends Controller
      */
     public function index()
     {
-        $datas = User::where('type', 'user')->get();
+        // $datas = User::where('type', 'user')->get();
 
-        return response()->json($datas);
+        // return response()->json($datas);
+        if (Auth()) {
+            $datas = Auth::user();
+            return response()->json($datas);
+        }
+        return response()->json([
+            'status' => 'Autentikasi kosong'
+        ]);
     }
 
     /**
@@ -151,30 +157,5 @@ class UserAndroidController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function login(Request $request)
-    {
-        $login = Auth::Attempt($request->all());
-        if ($login) {
-            $user = Auth::User();
-            $user->api_token = Str::random(100);
-            //$user->save();
-            // $user->makeVisible('api_token');
-
-            return response()->json([
-                'response_code' => 200,
-                'id' => $user->id,
-                'kode' => $user->kode,
-                'value' => 1,
-                'message' => 'Login Berhasil'
-            ]);
-        } else {
-            return response()->json([
-                'response_code' => 404,
-                'value' => 0,
-                'message' => 'Username atau Password Tidak Ditemukan!'
-            ]);
-        }
     }
 }
