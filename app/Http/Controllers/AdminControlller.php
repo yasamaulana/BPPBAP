@@ -16,11 +16,12 @@ class AdminControlller extends Controller
     public function index()
     {
         $datas = User::where('type', '!=', 'user')->get();
+        $hitung = count($datas);
 
         return view(
             'admin.useradmin',
             ["title" => "User Admin"],
-            compact('datas')
+            compact('datas', 'hitung')
         );
     }
 
@@ -90,6 +91,7 @@ class AdminControlller extends Controller
     public function update(Request $request, $id)
     {
         $item = User::find($id);
+        $request['password'] = Hash::make($request->password);
         $data = $request->except('_token');
         $item->update($data);
         return redirect('/user-admin')->with(['success' => 'Data Berhasil Diedit']);;
@@ -104,6 +106,15 @@ class AdminControlller extends Controller
     public function destroy($id)
     {
         $model = User::find($id);
+        $ambil = User::where('type', 'Super Admin');
+        $hitung = count([$ambil]);
+
+        if ($model->type == 'Super Admin') {
+            if ($hitung == 1) {
+                return redirect('/user-admin')->with(['eror' => 'Super Admin harus disisakan satu']);
+            }
+        }
+
         $model->delete();
         return redirect('/user-admin')->with(['success' => 'Data berhasil Dihapus']);
     }

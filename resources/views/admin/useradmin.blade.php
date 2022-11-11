@@ -25,6 +25,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
+                @if (session()->has('eror'))
+                    <div class="alert mt-1 alert-danger text-center alert-dismissible fade show" role="alert">
+                        {{ session('eror') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
             </div>
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -111,17 +117,19 @@
                                             <a href="{{ url('/user-admin/' . $value->id . '/edit') }}"><button
                                                     class="btn btn-sm rounded-4 ps-3 pe-3 btn-primary">Edit</button></a>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn rounded-4 btn-danger btn-sm"
-                                                data-bs-toggle="modal" data-bs-target="#delete">
-                                                Delete
-                                            </button>
+                                            @if ($hitung != 1)
+                                                <button type="button" class="btn rounded-4 btn-danger btn-sm"
+                                                    data-bs-toggle="modal" data-bs-target="#delete{{ $value->id }}">
+                                                    Delete
+                                                </button>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
+                                <div class="modal fade" id="delete{{ $value->id }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <button type="button" class="btn-close m-2 ms-auto" data-bs-dismiss="modal"

@@ -96,6 +96,8 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    // 'from' => ['address' => 'jepara@bppbap.com', 'name' => 'BBPBAP'],
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

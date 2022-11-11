@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\ChangePasswordController;
+use App\Http\Controllers\Api\Auth\ForgotPasswordController;
+use App\Http\Controllers\Api\Auth\ResetPasswordController;
+use App\Http\Controllers\Api\Auth\TokenChekController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +32,17 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [\App\Http\Controllers\Api\Auth\LoginController::class, 'logout']);
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+//api email routes
+Route::post('password/email',  ForgotPasswordController::class);
+Route::post('password/code/check', TokenChekController::class);
+Route::post('password/reset', ResetPasswordController::class);
+
+//ganti password
+Route::post('password/change/{id}', [ChangePasswordController::class, 'ganti']);
 
 Route::get('/sertifikat', [App\Http\Controllers\Api\SertifikatController::class, 'index']);
 Route::get('/kerjasama', [App\Http\Controllers\Api\KerjasamaController::class, 'index']);

@@ -82,6 +82,8 @@
                                         <div class="d-grid gap-2 mb-5">
                                             <button class="btn btn-primary" name="masuk" type="submit">Log
                                                 In</button>
+                                            <a href="/lupa-password" class="text-center"
+                                                style="text-decoration: none">Lupa password?</a>
                                         </div>
                                     </form>
                                 </div>

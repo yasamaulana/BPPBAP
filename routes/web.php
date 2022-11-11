@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminControlller;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\BantuanController;
 use App\Http\Controllers\BelajarController;
 use App\Http\Controllers\BintekController;
@@ -18,6 +20,7 @@ use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\SurveiController;
 use App\Http\Controllers\UserandroidController;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +49,33 @@ Route::get('/admin', function () {
   );
 })->middleware('auth');
 
+Route::get('/lupa-password', function () {
+  return view(
+    'lupapassword',
+  );
+});
+
+//tampialn sukses
+Route::get('/send-success', function () {
+  return view(
+    'forgotpw.success',
+  );
+});
+
+Route::get('/change-success', function () {
+  return view(
+    'forgotpw.scganti',
+  );
+});
+
+//tampilan ganti sandi
+Route::get('/ganti-sandi/{key}', function ($key) {
+  return view(
+    'forgotpw.gantisandi',
+    compact('key')
+  );
+});
+
 //setting
 Route::get('/setting', function () {
   return view(
@@ -53,7 +83,11 @@ Route::get('/setting', function () {
     ["title" => "Setting"]
   );
 });
+//reset password
+Route::post('/password/reset', ResetPasswordController::class);
 
+//send email
+Route::post('/password/email/send', ForgotPasswordController::class);
 //userAndoid
 Route::resource('/user-android', UserandroidController::class)->middleware('super');
 Route::get('/user-android/export', [UserandroidController::class, 'export'])->middleware('super');
