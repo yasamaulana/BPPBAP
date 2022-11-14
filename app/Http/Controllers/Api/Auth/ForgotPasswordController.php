@@ -29,7 +29,8 @@ class ForgotPasswordController extends Controller
         Mail::to($request->email)->send(new SendCodeResetPassword($codeData->token));
 
         return response()->json([
-            'message' => trans('passwords.sent')
+            'value' => 1,
+            'message' => 'Link Perubahan Password telah Terkirim, Cek Email Anda!'
         ], 200);
     }
 }

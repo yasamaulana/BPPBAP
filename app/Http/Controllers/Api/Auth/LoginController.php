@@ -19,7 +19,8 @@ class LoginController extends Controller
 
         $status = 401;
         $response = [
-            'error' => 'Proses masuk gagal!. Silahkan coba kembali.',
+            'value' => 0,
+            'message' => 'Proses masuk gagal!. Silahkan coba kembali.',
         ];
 
         if (Auth::attempt($credentials)) {
@@ -28,6 +29,8 @@ class LoginController extends Controller
             $response = [
                 'access_token' => $token,
                 'token_type' => 'Bearer',
+                'value' => 1,
+                'message' => 'Login Berhasil'
             ];
         }
 
@@ -38,7 +41,8 @@ class LoginController extends Controller
     {
         Auth::user()->tokens()->delete();
         return response()->json([
-            'message' => 'logout success'
+            'message' => 'Logout Berhasil',
+            'token' => ''
         ]);
     }
 }
